@@ -1,0 +1,20 @@
+#!/usr/bin/python3
+class ExecHexString:
+    def __init__(self,strg):
+        self.strg = strg;
+        decode = bytes.fromhex(strg).decode("utf-8");
+        exec(decode);
+
+print("1 - Hex String");
+print("2 - Filename of Hex String");
+print("0 - Exit");
+select = input(": ");
+if select == "1":
+    hexstr = input("Enter Hex String: ");
+    ExecHexString(hexstr);
+elif select == "2":
+    hexstr = input("Enter filename: ");
+    f = open(hexstr).read();
+    ExecHexString(f);
+elif select == "0":
+    exit();
