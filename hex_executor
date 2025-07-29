@@ -1,7 +1,6 @@
 #!/usr/bin/python3
-class ExecHexString:
-    def __init__(self,strg):
-        self.strg = strg;
+
+def ex(strg):
         decode = bytes.fromhex(strg).decode("utf-8");
         exec(decode);
 
@@ -13,11 +12,11 @@ print("0 - Exit");
 select = input(": ");
 if select == "1":
     hexstr = input("Enter Hex String: ");
-    ExecHexString(hexstr);
+    ex(hexstr);
 elif select == "2":
     hexstr = input("Enter filename: ");
     f = open(hexstr).read();
-    ExecHexString(f);
+    ex(f);
 elif select == "3":
     textstr = input("Enter text string: ");
     e = textstr.encode("utf-8").hex();
